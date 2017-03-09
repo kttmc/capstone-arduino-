@@ -1,0 +1,26 @@
+The purpose of this project was to test all systems, including the arduino and relating software. 
+The guidelines and code for the project was taken from a book called the Arduino Project Handbook by Mark Geddes 
+
+Code: 
+/* http://arduino.cc/en/Reference/AnalogWrite by Tom Igoe
+from http:itp.nyu.edu/physcomp/Labs/AnalogIn */ 
+
+int potPin = A0; // Analog input pin(A0) connected to the potentiometer
+int potValue = 0; // Sets a varaible for the value that will be read from the potentiometer
+int led = 9; // Pin 9 (connected to the LED) is capable of of PWM
+
+//Runs once at the beginning of the program
+void setup() { 
+  pinMode(led, OUTPUT); // set pin 9 as an output pin calibrated for a led
+  }
+ 
+//loops continuously 
+ void loop() {
+  portValue = analogRead(potPin); // Read potentiometer value from A0 pin
+  analogwrite(led, potValue/4); // Send potentimeter value to LED 
+  delay(10); // Wait for 10 ms
+      
+Project Notes:
+  The first trial lead to the LED working, however, the potentiometer had no effect on the led whatsoever. The
+  led was noted to flicker when jolted, so it suspected that the premade wires may have been faulty. Futhermore, the 
+  metal clips may have been in contact with the casing of the potentiometer, thus creating a short circuit. 
