@@ -23,4 +23,8 @@ void setup() {
 Project Notes:
   The first trial lead to the LED working, however, the potentiometer had no effect on the led whatsoever. The
   led was noted to flicker when jolted, so it suspected that the premade wires may have been faulty. Futhermore, the 
-  metal clips may have been in contact with the casing of the potentiometer, thus creating a short circuit. 
+  metal clips may have been in contact with the casing of the potentiometer, thus creating a short circuit- this was confirmed 
+  via a photo taken with a photo taken to docoment the project. 
+  
+  The secound trial was repeated with a different potentiometer and careful positioning of wires to prevent the short 
+  circuitry through the potentiometer. 
