@@ -28,6 +28,10 @@ Project Notes:
   
   The secound trial was repeated with a different potentiometer and careful positioning of wires to prevent the short 
   circuitry through the potentiometer. Stability was further increased by replacing old premade jumper wires with self made ones. This
-  lead to no improvement, however, the computer was noted to reconnect and disconnect with the with the audrino contunisly, leading 
-  to this having this be a problem with the arduino itself. 
+  lead to no improvement, however, the computer was noted to reconnect and disconnect with the with the arduino constantly. 
+  This lead to a diagnoius of either two issues, one, circuit build quailty, or two, a problem with the arduino itself. 
+  
+  The third trial was preformed with all above changes, as well as the diagonstic protocol performed in issue 1 
+  (https://github.com/kttmc/capstone-arduino-/issues/1). This resulted in a working circuit; the problem was build quailty- most
+  likely a specifically found jumper wire that was not stripped correctly. 
   
