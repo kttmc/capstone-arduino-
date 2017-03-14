@@ -27,5 +27,7 @@ Project Notes:
   via a photo taken with a photo taken to docoment the project. 
   
   The secound trial was repeated with a different potentiometer and careful positioning of wires to prevent the short 
-  circuitry through the potentiometer. Stability was further increased by replacing old premade jumper wires with self made ones. 
+  circuitry through the potentiometer. Stability was further increased by replacing old premade jumper wires with self made ones. This
+  lead to no improvement, however, the computer was noted to reconnect and disconnect with the with the audrino contunisly, leading 
+  to this having this be a problem with the arduino itself. 
   
