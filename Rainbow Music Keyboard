@@ -1,0 +1,159 @@
+The goal of this project was to create a device capable of playing musical notes while lighting up a sequence of correspounding LEDS. 
+This edition works, however, the music importation system is awakward and leads to user errors as typing long seris of letters and numbers
+leads to easy mistakes. Addtionally, switching music requires a rewrite of the program. 
+
+This project was created in effort to establish a firm ground in ardunio outputs. Future verisons will allow user input; including 
+a way to streamline the musical interperation process and a way for the user to set the tone. 
+
+Code: 
+int speakerPin = 11; //establishes the pin output for speaker; important that pin 11 is capable of producting analog signal
+
+int length = 4; //length of the music notes, must be equal to total number of notes + music; edit to change music length
+char notes[] = "gage "; // a space represents a rest, corrlates with the music scale; edit to change spefic musical tones
+int beats[] = {2, 1, 1, 2, 2}; //length a spefic note is played, spaces included; edit to change note length
+int tempo = 300; //"speed" of the music; increase to increase music speed
+
+int LED1 = 2; //establishing outputs for each of the leds; leds are arranged on a row on the breadboard (insert length) 
+int LED2 = 3;
+int LED3 = 4;
+int LED4 = 5;
+int LED5 = 6;
+int LED6 = 7; 
+int LED7 = 8; 
+int LED8 = 9;
+int LED9 = 10; 
+int LED10 = 12;
+
+void playTone(int tone, int duration) { // Code to play the 
+  for (long i = 0; i < duration * 1000L; i += tone * 2) {
+    digitalWrite(speakerPin, HIGH);
+    delayMicroseconds(tone);
+    digitalWrite(speakerPin, LOW);
+    delayMicroseconds(tone);
+  }
+}
+
+void playNote(char note, int duration) {
+  char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
+  int tones[] = {1915, 1700, 1519, 1432, 1275, 1136, 1014, 956};
+
+  // play the tone corresponding to the note name; credit to the medoldy portion of the arduino
+  for (int i = 0; i < 8; i++) {
+    if (names[i] == note) {
+      playTone(tones[i], duration);
+    }
+  }
+}
+
+void setup() {
+  pinMode(speakerPin, OUTPUT); //sets all led and the speaker pin to output mode 
+
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT); 
+  pinMode(5, OUTPUT); 
+  pinMode(6, OUTPUT);  
+  pinMode(7, OUTPUT); 
+  pinMode(8, OUTPUT); 
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT); 
+  pinMode(12, OUTPUT);
+}
+
+void loop() {
+  for (int i = 0; i < length; i++) {
+    if (notes[i] == ' ') {
+      delay(beats[i] * tempo); // rest
+    } else {
+      playNote(notes[i], beats[i] * tempo);
+
+     if (notes[i] == 'C') { 
+         digitalWrite(LED10, HIGH); 
+         digitalWrite(LED9, HIGH);
+
+         delay(beats[i]); 
+      }
+      else { 
+    
+         digitalWrite(LED9, LOW);
+         digitalWrite(LED10, LOW);
+      }
+
+      if (notes[i] == 'b') { 
+         digitalWrite(LED8, HIGH); 
+
+        
+
+         delay(beats[i]);
+      }
+      else {
+        
+         digitalWrite(LED8, LOW);
+      }
+
+      if (notes[i] == 'a') { 
+         digitalWrite(LED7, HIGH); 
+
+         delay(beats[i]); 
+      }
+      else {
+         digitalWrite(LED7, LOW); 
+      }
+
+      if (notes[i] == 'g'){ 
+         digitalWrite(LED6, HIGH);
+         
+         delay(beats[i]); 
+      }
+      else {  
+         digitalWrite(LED6, LOW); 
+      }
+
+      if (notes[i] == 'f'){ 
+         digitalWrite(LED5, HIGH); 
+
+         delay(beats[i]);
+      } 
+      else { 
+         digitalWrite(LED5, LOW); 
+      }
+
+      if (notes[i] == 'e') { 
+         digitalWrite(LED4, HIGH); 
+
+         delay(beats[i]);
+      }
+      else { 
+         digitalWrite(LED4, LOW); 
+         
+  
+      }
+
+      if (notes[i] == 'd' ) { 
+         digitalWrite(LED3, HIGH); 
+
+
+
+         delay(beats[i]); 
+      }
+      else {  
+         digitalWrite(LED3, LOW); 
+
+      }
+
+      if (notes[i] == 'c') { 
+         digitalWrite(LED2, HIGH); 
+         digitalWrite(LED1, HIGH);
+
+         delay(beats[i]); 
+      }
+      else { 
+         digitalWrite(LED1, LOW);
+         digitalWrite(LED2, LOW); 
+      }
+      }
+    }
+
+    // pause between notes
+    delay(tempo / 2); 
+  }
