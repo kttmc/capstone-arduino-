@@ -1,16 +1,16 @@
-The goal of this project was to create a device capable of playing musical notes while lighting up a sequence of correspounding LEDS. 
-This edition works, however, the music importation system is awakward and leads to user errors as typing long seris of letters and numbers
-leads to easy mistakes. Addtionally, switching music requires a rewrite of the program. 
+//The goal of this project was to create a device capable of playing musical notes while lighting up a sequence of corresponding LEDS. 
+//This edition works, however, the music importation system is awkward and leads to user errors as typing long series of letters and numbers
+//leads to easy mistakes. Additionally, switching music requires a rewrite of the program. 
 
-This project was created in effort to establish a firm ground in ardunio outputs. Future verisons will allow user input; including 
-a way to streamline the musical interperation process and a way for the user to set the tone. 
+//This project was created in effort to establish a firm ground in arduino outputs. Future versions will allow user input; including 
+//a way to streamline the musical interpretation process and a way for the user to set the tone. 
 
-Code: 
-int speakerPin = 11; //establishes the pin output for speaker; important that pin 11 is capable of producting analog signal
+//Code: 
+int speakerPin = 11; //establishes the pin output for speaker; important that pin 11 is capable of producing analog signal
 
 int length = 4; //length of the music notes, must be equal to total number of notes + music; edit to change music length
-char notes[] = "gage "; // a space represents a rest, corrlates with the music scale; edit to change spefic musical tones
-int beats[] = {2, 1, 1, 2, 2}; //length a spefic note is played, spaces included; edit to change note length
+char notes[] = "gage "; //a space represents a rest, correlates with the music scale; edit to change specific musical tones
+int beats[] = {2, 1, 1, 2, 2}; //length a specific note is played, spaces included; edit to change note length
 int tempo = 300; //"speed" of the music; increase to increase music speed
 
 int LED1 = 2; //establishing outputs for each of the leds; leds are arranged on a row on the breadboard (insert image) 
@@ -33,13 +33,13 @@ void playTone(int tone, int duration) { // Code to create analog signal to speak
   }
 }
 
-void playNote(char note, int duration) { //establishes interpreation between the notes and analog tone
+void playNote(char note, int duration) { //establishes interpretation between the notes and analog tone
   char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' }; //establishes the musical tones
   int tones[] = {1915, 1700, 1519, 1432, 1275, 1136, 1014, 956}; //establishes the rate of occulation
 
-  for (int i = 0; i < 8; i++) { //interperts the user musical input
+  for (int i = 0; i < 8; i++) { //interperets the user musical input
     if (names[i] == note) { //if the user inputed notes match any established music notes
-      playTone(tones[i], duration); //play the speficied tone
+      playTone(tones[i], duration); //play the specified tone
     }
   }
 }
@@ -59,40 +59,40 @@ void setup() {
   pinMode(12, OUTPUT);
 }
 
-void loop() { //controls atutal playing of the musical notes and led lighting 
+void loop() { //controls actual playing of the musical notes and led lighting 
   for (int i = 0; i < length; i++) { //for the user inputed length of the music...
   
   if (notes[i] == ' ') { //if the user inputed notes are blank
       delay(beats[i] * tempo); // rest; play no sound
    
    } else { //if the user has input a note...
-      playNote(notes[i], beats[i] * tempo); //...play the note, for the length of the beat determinded by the tempo
+      playNote(notes[i], beats[i] * tempo); //...play the note, for the length of the beat determined by the tempo
 
      if (notes[i] == 'C') { //if the note is C...
          digitalWrite(LED10, HIGH); //light both LEDS
          digitalWrite(LED9, HIGH);
 
-         delay(beats[i]); 
+         delay(beats[i]); //keep LEDS on as long as the note plays 
       }
-      else { 
+      else { //if the note is NOT C
     
-         digitalWrite(LED9, LOW);
+         digitalWrite(LED9, LOW); //keep both LEDS off
          digitalWrite(LED10, LOW);
       }
 
-      if (notes[i] == 'b') { 
-         digitalWrite(LED8, HIGH); 
+      if (notes[i] == 'b') {  //if the note is b...
+         digitalWrite(LED8, HIGH); //turn LED 8 on
 
         
 
-         delay(beats[i]);
+         delay(beats[i]); //keep LEDs on as long as the note plays
       }
       else {
         
-         digitalWrite(LED8, LOW);
+         digitalWrite(LED8, LOW); //keep LEDs off
       }
 
-      if (notes[i] == 'a') { 
+      if (notes[i] == 'a') { //rest of the if-else statements follow the same pattern
          digitalWrite(LED7, HIGH); 
 
          delay(beats[i]); 
@@ -156,5 +156,5 @@ void loop() { //controls atutal playing of the musical notes and led lighting
     }
 
     // pause between notes
-    delay(tempo / 2); 
+    delay(tempo / 2);  
   }
