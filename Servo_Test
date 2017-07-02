@@ -1,0 +1,30 @@
+//The purpose of this experiment was to not create a stand-alone project, but to test the strength and function of some new servos
+//In order to do this, I created a automatic lazer pointer, mounted on a servo. The stand and physical mounting was created using 
+//cardboard and tape 
+
+//Code: 
+
+
+#include <Servo.h>  //include the servo libary 
+
+Servo servoone;  // create servo object to control a servo
+int degree;    // variable to store the degree of the moving part of the servo
+
+
+
+void setup() {
+  servoone.attach(9);  // sets servo to pin 9 
+}
+
+//to move the lazer across large distances randomly 
+void loop() {
+  degree = random(0, 30);       //selects a random value between zero and 30
+  servoone.write(degree);      // sets the servo position according to the randomly determined value 
+  delay(2000);                 //delay for 2000 ms 
+
+//in order to slow down the movement of the lazer dot
+  for(int i = 0; i <= degree; i++) { //for the number of the degree that the servo turned
+    servoone.write(1);   //turn one degree 
+    delay(20);           //delay 
+  }
+}
