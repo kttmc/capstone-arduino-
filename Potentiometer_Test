@@ -1,7 +1,8 @@
-The purpose of this project was to test all systems, including the arduino and relating software. 
-The guidelines and code for the project was taken from a book called the Arduino Project Handbook by Mark Geddes 
+//The purpose of this project was to serve as a test for all systems, including the arduino and relating software, rather
+//than a separate, stand-alone project.
+//The guidelines and code for the project was taken from a book called the Arduino Project Handbook by Mark Geddes 
 
-Code: 
+//Code: 
 /* http://arduino.cc/en/Reference/AnalogWrite by Tom Igoe
 from http:itp.nyu.edu/physcomp/Labs/AnalogIn */ 
 
@@ -20,8 +21,8 @@ void setup() {
   analogwrite(led, potValue/4); // Send potentimeter value to LED 
   delay(10); // Wait for 10 ms
       
-Project Notes:
-  The first trial lead to the LED working, however, the potentiometer had no effect on the led whatsoever. The
+//Project Notes:
+  /* The first trial lead to the LED working, however, the potentiometer had no effect on the led whatsoever. The
   led was noted to flicker when jolted, so it suspected that the premade wires may have been faulty. Futhermore, the 
   metal clips may have been in contact with the casing of the potentiometer, thus creating a short circuit- this was confirmed 
   via a photo taken with a photo taken to docoment the project. 
@@ -33,5 +34,5 @@ Project Notes:
   
   The third trial was preformed with all above changes, as well as the diagonstic protocol performed in issue 1 
   (https://github.com/kttmc/capstone-arduino-/issues/1). This resulted in a working circuit; the problem was build quailty- most
-  likely a specifically found jumper wire that was not stripped correctly. 
+  likely a specifically found jumper wire that was not stripped correctly. */
   
