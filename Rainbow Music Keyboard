@@ -13,8 +13,10 @@ char notes[] = "gage "; //a space represents a rest, correlates with the music s
 int beats[] = {2, 1, 1, 2, 2}; //length a specific note is played, spaces included; edit to change note length
 int tempo = 300; //"speed" of the music; increase to increase music speed
 
-int LED1 = 2; //establishing outputs for each of the leds; leds are arranged on a row on the breadboard:
-int LED2 = 3; // https://drive.google.com/file/d/0B-S2RwSigxKZS1ZaeGhzdzVFZVU/view?usp=sharing
+//Picture: https://drive.google.com/file/d/0B-S2RwSigxKZS1ZaeGhzdzVFZVU/view?usp=sharing
+
+int LED1 = 2; 
+int LED2 = 3; 
 int LED3 = 4;
 int LED4 = 5;
 int LED5 = 6;
