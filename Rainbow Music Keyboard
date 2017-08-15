@@ -14,6 +14,7 @@ int beats[] = {2, 1, 1, 2, 2}; //length a specific note is played, spaces includ
 int tempo = 300; //"speed" of the music; increase to increase music speed
 
 //Picture: https://drive.google.com/file/d/0B-S2RwSigxKZS1ZaeGhzdzVFZVU/view?usp=sharing
+//Schematic: https://drive.google.com/file/d/0B-S2RwSigxKZWXZnY3p6dEZrVEk/view?usp=sharing
 
 int LED1 = 2; 
 int LED2 = 3; 
