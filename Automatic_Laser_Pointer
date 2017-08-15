@@ -1,0 +1,38 @@
+//The purpose of this experiment was to test the strength and programming function of some new servos 
+//To test the servos, an "automatic laser pointer" was created; basically, a toy laser pointer mounted on a servo, standing freely
+//on a cardboard stand. 
+//The lazer was designed in order to entertain a cat, requiring that it both move itself randomly in order to remain engaging, 
+//but also remain slow enough that the cat would not become frustrated. To accomplish this, a two step pattern was created; 
+//a randomly determined "large movement" between 0 and 30 degrees, as well as a one degree "smaller movement" in order to shake the laser
+//and allow the cat to catch up. 
+
+//Structure: https://drive.google.com/file/d/0B-S2RwSigxKZNFNCaTNzcmRiWXM/view?usp=sharing
+//Device in action: https://drive.google.com/file/d/0B-S2RwSigxKZcEh0YnMzRThSRzg/view?usp=sharing
+
+
+//Code: 
+
+
+#include <Servo.h>  //include the servo libary 
+
+Servo servoone;  // create servo object to control a servo
+int degree;    // variable to store the degree of the moving part of the servo
+
+
+
+void setup() {
+  servoone.attach(9);  // sets servo to pin 9 
+}
+
+//to move the lazer across large distances randomly 
+void loop() {
+  degree = random(0, 30);       //selects a random value between zero and 30
+  servoone.write(degree);      // sets the servo position according to the randomly determined value 
+  delay(2000);                 //delay for 2000 ms 
+
+//in order to slow down the movement of the lazer dot
+  for(int i = 0; i <= degree; i++) { //for the number of the degree that the servo turned
+    servoone.write(1);   //turn one degree 
+    delay(20);           //delay 
+  }
+}
